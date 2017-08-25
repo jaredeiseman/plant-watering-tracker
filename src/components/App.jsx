@@ -21,6 +21,7 @@ class App extends React.Component {
     this.toggleAddPlantFormShowing = this.toggleAddPlantFormShowing.bind(this);
     this.addNewPlantToList = this.addNewPlantToList.bind(this);
     this.waterPlant = this.waterPlant.bind(this);
+    this.deletePlant = this.deletePlant.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +66,16 @@ class App extends React.Component {
     this.updateTimers();
   }
 
+  deletePlant(plantToBeDeleted) {
+    var newState = this.state.plantList.slice();
+    newState.forEach((plant, index) => {
+      if ((plant.name === plantToBeDeleted.name) && (plant.wateringInterval === plantToBeDeleted.wateringInterval)) {
+        newState.splice(index, 1);
+      }
+    });
+    this.setState({plantList: newState});
+  }
+
   render() {
 
     return (
@@ -75,7 +86,8 @@ class App extends React.Component {
           toggleAddPlantFormShowing={this.toggleAddPlantFormShowing}
           addNewPlantToList={this.addNewPlantToList} />
         <PlantList childPlantList={this.state.plantList}
-          waterPlant={this.waterPlant}/>
+          waterPlant={this.waterPlant}
+          deletePlant={this.deletePlant} />
       </div>
     );
   }

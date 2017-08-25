@@ -15,7 +15,8 @@ function Plant(props) {
           nextWatering={props.childPlant.nextWatering} />
         <WaterDeleteButtons
           waterPlant={props.waterPlant}
-          childPlant={props.childPlant} />
+          childPlant={props.childPlant}
+          deletePlant={props.deletePlant} />
       </div>
     </div>
   );
@@ -24,6 +25,7 @@ function Plant(props) {
 Plant.propTypes = {
   childPlant: PropTypes.instanceOf(PlantModel).isRequired,
   waterPlant: PropTypes.func.isRequired,
+  deletePlant: PropTypes.func.isRequired,
 };
 
 export default Plant;

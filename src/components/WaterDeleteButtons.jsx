@@ -8,17 +8,23 @@ class WaterDeleteButtons extends React.Component {
     super(props);
 
     this.handleWaterPlantClicked = this.handleWaterPlantClicked.bind(this);
+    this.handleDeletePlantClicked = this.handleDeletePlantClicked.bind(this);
   }
 
   handleWaterPlantClicked() {
     this.props.waterPlant(this.props.childPlant);
   }
 
+  handleDeletePlantClicked() {
+    this.props.deletePlant(this.props.childPlant);
+  }
+
   render() {
     return (
       <div className={styles.waterDeleteButtons}>
         <button onClick={this.handleWaterPlantClicked}>Water</button>
-        <button className={styles.deleteButton}>Delete</button>
+        <button onClick={this.handleDeletePlantClicked}
+          className={styles.deleteButton}>Delete</button>
       </div>
     );
   }
@@ -26,7 +32,8 @@ class WaterDeleteButtons extends React.Component {
 
 WaterDeleteButtons.propTypes = {
   waterPlant: PropTypes.func.isRequired,
-  childPlant: PropTypes.instanceOf(PlantModel).isRequired
+  childPlant: PropTypes.instanceOf(PlantModel).isRequired,
+  deletePlant: PropTypes.func.isRequired,
 };
 
 export default WaterDeleteButtons;

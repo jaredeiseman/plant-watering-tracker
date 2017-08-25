@@ -9,7 +9,8 @@ function PlantList(props) {
       {props.childPlantList.map((plant, index) =>
         <Plant childPlant={plant}
           key={index}
-          waterPlant={props.waterPlant} />
+          waterPlant={props.waterPlant}
+          deletePlant={props.deletePlant} />
       )}
     </div>
   );
@@ -18,6 +19,7 @@ function PlantList(props) {
 PlantList.propTypes = {
   childPlantList: PropTypes.array.isRequired,
   waterPlant: PropTypes.func.isRequired,
+  deletePlant: PropTypes.func.isRequired,
 };
 
 export default PlantList;
