@@ -6,8 +6,9 @@ import FormContainer from './FormContainer';
 function App(){
   return (
     <div className={styles.app}>
-      <PlantList />
+      <h1>Da Nursery</h1>
       <FormContainer />
+      {/*<PlantList />*/}
     </div>
   );
 }

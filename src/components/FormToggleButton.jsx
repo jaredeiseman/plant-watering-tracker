@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from '../styles/App.css';
 
 function FormToggleButton() {
   return (
-    <div>FormToggleButton Works!</div>
+    <button className={styles.formToggleButton}>Add a New Plant</button>
   );
 }
 
