@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 function Timer(props) {
   return (
     <div>
-      <span>Watering Interval: {props.wateringInterval} Hours</span>
-      <span>Last Watered: {props.nextWatering}</span>
+      <span style={{display: 'block'}}>Watering Interval: {props.wateringInterval} Hours</span>
+      <span>Should be watered {props.nextWatering}</span>
     </div>
   );
 }

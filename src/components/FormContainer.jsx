@@ -9,7 +9,8 @@ function FormContainer(props) {
     <div className={styles.formContainer}>
       <FormToggleButton toggleAddPlantFormShowing={props.toggleAddPlantFormShowing} />
       <AddPlantForm addPlantFormShowing={props.addPlantFormShowing}
-        addNewPlantToList={props.addNewPlantToList} />
+        addNewPlantToList={props.addNewPlantToList}
+        toggleAddPlantFormShowing={props.toggleAddPlantFormShowing} />
     </div>
   );
 }

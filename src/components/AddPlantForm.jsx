@@ -19,7 +19,12 @@ class AddPlantForm extends React.Component {
 
     var newPlant = new PlantModel(_plantName.value, parseFloat(_wateringInterval.value), new Moment(_lastWatered.value).format());
 
+    _plantName.value = '';
+    _wateringInterval.value = '';
+    _lastWatered.value = '';
+
     this.props.addNewPlantToList(newPlant);
+    this.props.toggleAddPlantFormShowing();
   }
 
   render() {
@@ -48,6 +53,7 @@ class AddPlantForm extends React.Component {
 AddPlantForm.propTypes = {
   addPlantFormShowing: PropTypes.bool.isRequired,
   addNewPlantToList: PropTypes.func.isRequired,
+  toggleAddPlantFormShowing: PropTypes.func.isRequired
 };
 
 export default AddPlantForm;
