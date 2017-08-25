@@ -1,6 +1,6 @@
 import React from 'react';
 import Timer from './Timer';
-import WaterButton from './WaterButton';
+import WaterDeleteButtons from './WaterDeleteButtons';
 import PropTypes from 'prop-types';
 import PlantModel from '../models/PlantModel';
 import styles from '../styles/App.css';
@@ -13,14 +13,17 @@ function Plant(props) {
         <Timer
           wateringInterval={props.childPlant.wateringInterval}
           nextWatering={props.childPlant.nextWatering} />
-        <WaterButton />
+        <WaterDeleteButtons
+          waterPlant={props.waterPlant}
+          childPlant={props.childPlant} />
       </div>
     </div>
   );
 }
 
 Plant.propTypes = {
-  childPlant: PropTypes.instanceOf(PlantModel).isRequired
+  childPlant: PropTypes.instanceOf(PlantModel).isRequired,
+  waterPlant: PropTypes.func.isRequired,
 };
 
 export default Plant;

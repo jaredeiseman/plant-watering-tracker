@@ -7,14 +7,17 @@ function PlantList(props) {
   return (
     <div className={styles.plantList}>
       {props.childPlantList.map((plant, index) =>
-        <Plant childPlant={plant} key={index} />
+        <Plant childPlant={plant}
+          key={index}
+          waterPlant={props.waterPlant} />
       )}
     </div>
   );
 }
 
 PlantList.propTypes = {
-  childPlantList: PropTypes.array.isRequired
+  childPlantList: PropTypes.array.isRequired,
+  waterPlant: PropTypes.func.isRequired,
 };
 
 export default PlantList;

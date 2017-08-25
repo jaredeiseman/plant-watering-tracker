@@ -106,7 +106,7 @@ h1 {
   border-bottom: 1px solid black;
 }
 
-.waterButton {
+.waterDeleteButtons button {
   padding: 10px;
   font-size: 20px;
   background: #157800;
@@ -117,8 +117,12 @@ h1 {
   transition: all .3s;
 }
 
-.waterButton:hover {
+.waterDeleteButtons button:hover {
   background: #fff;
   border: 1px solid #157800;
   color: #157800;
+}
+
+.deleteButton {
+  margin-left: 10px;
 }

@@ -20,12 +20,13 @@ class App extends React.Component {
 
     this.toggleAddPlantFormShowing = this.toggleAddPlantFormShowing.bind(this);
     this.addNewPlantToList = this.addNewPlantToList.bind(this);
+    this.waterPlant = this.waterPlant.bind(this);
   }
 
   componentDidMount() {
     this.updateTimers();
     this.timerStartedChecker = setInterval(() =>
-      this.updateTimers(), 5000);
+      this.updateTimers(), 1000);
   }
 
   componentWillUnmount() {
@@ -50,6 +51,20 @@ class App extends React.Component {
     this.setState({plantList: newPlantList});
   }
 
+  waterPlant(wateredPlant) {
+    wateredPlant.lastWatering = new Moment().format();
+    var newState = this.state.plantList.slice();
+    newState = newState.map((plant) => {
+      if ((plant.name === wateredPlant.name) && (plant.wateringInterval === wateredPlant.wateringInterval)) {
+        return wateredPlant;
+      } else {
+        return plant;
+      }
+    });
+    this.setState({plantList: newState});
+    this.updateTimers();
+  }
+
   render() {
 
     return (
@@ -59,7 +74,8 @@ class App extends React.Component {
           addPlantFormShowing={this.state.addPlantFormShowing}
           toggleAddPlantFormShowing={this.toggleAddPlantFormShowing}
           addNewPlantToList={this.addNewPlantToList} />
-        <PlantList childPlantList={this.state.plantList}/>
+        <PlantList childPlantList={this.state.plantList}
+          waterPlant={this.waterPlant}/>
       </div>
     );
   }
