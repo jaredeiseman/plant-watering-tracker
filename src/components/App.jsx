@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       plantList: [
         new PlantModel('tomato', 24, new Moment().format()),
-        new PlantModel('fern', 24, new Moment().format()),
+        new PlantModel('fern', 1, new Moment().format()),
         new PlantModel('venus flytrap', 24, new Moment().format()),
       ],
       addPlantFormShowing: false
@@ -22,6 +22,16 @@ class App extends React.Component {
     this.addNewPlantToList = this.addNewPlantToList.bind(this);
   }
 
+  componentDidMount() {
+    this.updateTimers();
+    this.timerStartedChecker = setInterval(() =>
+      this.updateTimers(), 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerStartedChecker);
+  }
+
   toggleAddPlantFormShowing() {
     this.setState({addPlantFormShowing: !this.state.addPlantFormShowing});
   }
@@ -29,6 +39,14 @@ class App extends React.Component {
   addNewPlantToList(newPlant) {
     var newPlantList = this.state.plantList.slice();
     newPlantList.push(newPlant);
+    this.setState({plantList: newPlantList});
+  }
+
+  updateTimers() {
+    var newPlantList = this.state.plantList.slice();
+    newPlantList.forEach((plant) => {
+      plant.updateNextWateringTime();
+    });
     this.setState({plantList: newPlantList});
   }
 

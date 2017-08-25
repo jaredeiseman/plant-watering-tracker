@@ -17,7 +17,7 @@ class AddPlantForm extends React.Component {
 
     const {_plantName, _wateringInterval, _lastWatered} = this.refs;
 
-    var newPlant = new PlantModel(_plantName.value, parseInt(_wateringInterval.value), new Moment(_lastWatered.value).format());
+    var newPlant = new PlantModel(_plantName.value, parseFloat(_wateringInterval.value), new Moment(_lastWatered.value).format());
 
     this.props.addNewPlantToList(newPlant);
   }
@@ -30,7 +30,7 @@ class AddPlantForm extends React.Component {
             <label htmlFor="plantName">Plant Name/Type:</label>
             <input type="text" placeholder="Tomato" name="plantName" ref="_plantName"/>
             <label htmlFor="wateringInterval">How often should it be watered (in hours)?</label>
-            <input type="number" placeholder="8" name="wateringInterval" ref="_wateringInterval"/>
+            <input type="number" placeholder="8" name="wateringInterval" ref="_wateringInterval" step="0.01" />
           </div>
           <div className={styles.rightFormColumn}>
             <label htmlFor="lastWatered">When was it last watered:</label>

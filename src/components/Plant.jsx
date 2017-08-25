@@ -12,7 +12,7 @@ function Plant(props) {
         <p>{props.childPlant.name}</p>
         <Timer
           wateringInterval={props.childPlant.wateringInterval}
-          lastWatering={props.childPlant.lastWatering} />
+          nextWatering={props.childPlant.nextWatering} />
         <WaterButton />
       </div>
     </div>
