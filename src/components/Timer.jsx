@@ -1,9 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Timer() {
+function Timer(props) {
   return (
-    <div>Timer Works!</div>
+    <div>
+      <span>Watering Interval: {props.wateringInterval}</span>
+      <span>Last Watered: {props.lastWatering}</span>
+    </div>
   );
 }
+
+Timer.propTypes = {
+  wateringInterval: PropTypes.string.isRequired,
+  lastWatering: PropTypes.string.isRequired,
+};
 
 export default Timer;

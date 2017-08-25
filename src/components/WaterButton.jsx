@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from '../styles/App.css';
 
 function WaterButton() {
   return (
-    <div>WaterButton Works!</div>
+    <button className={styles.waterButton}>Water</button>
   );
 }
 

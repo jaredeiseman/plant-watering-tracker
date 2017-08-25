@@ -73,3 +73,36 @@ h1 {
   margin-top: 17px;
   width: 100%;
 }
+
+.plantList {
+  border: 1px solid black;
+  padding: 0 25px 25px;
+  margin-top: 30px;
+  border-radius: 3px;
+}
+
+.plant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+  margin-top: 25px;
+  border-bottom: 1px solid black;
+}
+
+.waterButton {
+  padding: 10px;
+  font-size: 20px;
+  background: #157800;
+  border: 1px solid transparent;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all .3s;
+}
+
+.waterButton:hover {
+  background: #fff;
+  border: 1px solid #157800;
+  color: #157800;
+}

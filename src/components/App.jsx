@@ -23,7 +23,7 @@ class App extends React.Component {
       <div className={styles.app}>
         <h1>Da Nursery</h1>
         <FormContainer />
-        {/*<PlantList />*/}
+        <PlantList childPlantList={this.state.plantList}/>
       </div>
     );
   }
