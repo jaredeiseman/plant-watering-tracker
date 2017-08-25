@@ -1,4 +1,4 @@
-class Plant {
+class PlantModel {
   constructor(name, wateringInterval, lastWatering) {
     this.name = name;
     this.wateringInterval = wateringInterval;
@@ -6,4 +6,4 @@ class Plant {
   }
 }
 
-export default Plant;
+export default PlantModel;
