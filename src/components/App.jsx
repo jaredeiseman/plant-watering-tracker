@@ -13,8 +13,15 @@ class App extends React.Component {
         new PlantModel('tomato', '1d', '8h'),
         new PlantModel('fern', '1d', '4h'),
         new PlantModel('venus flytrap', '1d', '17h'),
-      ]
+      ],
+      addPlantFormShowing: false
     };
+
+    this.toggleAddPlantFormShowing = this.toggleAddPlantFormShowing.bind(this);
+  }
+
+  toggleAddPlantFormShowing() {
+    this.setState({addPlantFormShowing: !this.state.addPlantFormShowing});
   }
 
   render() {
@@ -22,7 +29,9 @@ class App extends React.Component {
     return (
       <div className={styles.app}>
         <h1>Da Nursery</h1>
-        <FormContainer />
+        <FormContainer
+          addPlantFormShowing={this.state.addPlantFormShowing}
+          toggleAddPlantFormShowing={this.toggleAddPlantFormShowing} />
         <PlantList childPlantList={this.state.plantList}/>
       </div>
     );
