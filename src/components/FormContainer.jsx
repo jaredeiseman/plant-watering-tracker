@@ -8,7 +8,8 @@ function FormContainer(props) {
   return (
     <div className={styles.formContainer}>
       <FormToggleButton toggleAddPlantFormShowing={props.toggleAddPlantFormShowing} />
-      <AddPlantForm addPlantFormShowing={props.addPlantFormShowing} />
+      <AddPlantForm addPlantFormShowing={props.addPlantFormShowing}
+        addNewPlantToList={props.addNewPlantToList} />
     </div>
   );
 }
@@ -16,6 +17,7 @@ function FormContainer(props) {
 FormContainer.propTypes = {
   addPlantFormShowing: PropTypes.bool.isRequired,
   toggleAddPlantFormShowing: PropTypes.func.isRequired,
+  addNewPlantToList: PropTypes.func.isRequired,
 };
 
 export default FormContainer;
