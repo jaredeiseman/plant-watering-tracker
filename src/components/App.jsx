@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       plantList: [
         new PlantModel('tomato', 24, new Moment().format()),
-        new PlantModel('fern', 1, new Moment().format()),
+        new PlantModel('fern', .501, new Moment().format()),
         new PlantModel('venus flytrap', 24, new Moment().format()),
       ],
       addPlantFormShowing: false

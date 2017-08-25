@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import Moment from 'moment';
 
 function PlantList(props) {
-  var toDisplay = props.childPlantList.sort((a,b) => {
+  var toDisplay = props.childPlantList.slice();
+  toDisplay.sort((a,b) => {
     var first = new Moment(a.lastWatering);
     var second = new Moment(b.lastWatering);
     if (first.isBefore(second)) {
@@ -19,7 +20,7 @@ function PlantList(props) {
 
   return (
     <div className={styles.plantList}>
-      {props.childPlantList.map((plant, index) =>
+      {toDisplay.map((plant, index) =>
         <Plant childPlant={plant}
           key={index}
           waterPlant={props.waterPlant}
